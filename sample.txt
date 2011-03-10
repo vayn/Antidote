@@ -1,0 +1,23 @@
+{Sample} Software List
+file: Software-List
+tags: sample
+
+01. Guake Terminal
+02. Wakoopa
+03. Cardapio
+04. Synapse
+05. Exaile
+06. conkyExaile
+07. doubanfm
+08. Gwibber-douban
+09. bti
+10. Chrome+Elementary
+11. weather-indicator
+12. Hotot
+13. Console
+14. Easy DragToGo (fx)
+15. NetVideoHunter (fx)
+16. Tab Mix Plus (fx)
+17. Vimperator (fx)
+18. Flagfox (fx)
+19. Faenze (theme)

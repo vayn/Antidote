@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Result</title>
+</head>
+<body>
+<p>You searched for: <strong>{{ query }}</strong></p>
+{% if entries %}
+    <p>Found {{ entries|length }} entr{{ entries|pluralize:"y,ies" }}.</p>
+    <ul>
+        {% for entry in entries %}
+        <li>{{ entry.title }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No posts matched your search criteria.</p>
+{% endif %}
+</body>
+</html>

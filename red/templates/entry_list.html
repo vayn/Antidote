@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Archive{% endblock %}
+
+{% block content %}
+    <h2>Archive</h2>
+    {% if entry_list %}
+        <ul>
+            {% for entry in entry_list %}
+                <li>
+                    {{ entry.pub_date|date:"Y-m-j" }}
+                    <a href="/admin/red/entry/{{ entry.id }}">{{ entry.title }}</a>
+                    ( tag{{ entry.tags.all|pluralize }}: {% for tag in entry.tags.all %} {{ tag }} {% endfor %})
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Sorry, there is no article.</p>
+    {% endif %}
+    {% if tag_list %}
+        <p>{{ tag_list }}</p>
+    {% endif %}
+{% endblock %}

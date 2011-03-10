@@ -1,0 +1,11 @@
+---{% load gapless %}
+layout: post
+title: '{{ title|safe }}'
+author: Vayn
+date: {{ pub_date }}
+categories:
+  {% gapless %}{% for tag in taglist %}
+  - {{ tag }}
+{% endfor %}{% endgapless %}
+---
+{{ content|safe }}
