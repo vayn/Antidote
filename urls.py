@@ -19,6 +19,7 @@ entry_info = {
 urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^search/$', 'antidote.red.views.search'),
-    (r'archive/$', list_detail.object_list, entry_info),
+    (r'^archive/$', list_detail.object_list, entry_info),
+    (r'^export/(?P<entry_id>\d+)/$', 'antidote.red.views.export'),
     (r'^$', 'antidote.red.views.upload_file'),
 )

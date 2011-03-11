@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, get_object_or_404
 from django.views.generic import list_detail
 from django.http import HttpResponse
 from django.template import loader, Context
@@ -41,3 +41,20 @@ def upload_file(request):
     else:
         form = UploadFileForm()
     return render_to_response('index.html', {'form': form})
+
+def export(request, entry_id):
+    e = get_object_or_404(Entry, id=entry_id)
+
+    filename = e.title.replace(' ', '-').lower()
+    for p in '{}':
+        filename = filename.replace(p, '')
+    for tag in e.tags.all():
+        e.taglist.append(tag.name)
+    filename = str(e.pub_date) + '-' + filename
+
+    exp = {'title': e.title,
+           'taglist': e.taglist,
+           'pub_date': e.pub_date,
+           'content': e.content,
+          }
+    return _handle_uploaded_file(filename, exp)

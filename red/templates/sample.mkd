@@ -2,7 +2,7 @@
 layout: post
 title: '{{ title|safe }}'
 author: Vayn
-date: {{ pub_date }}
+date: {{ pub_date|date:"Y-m-j" }}
 categories:
   {% gapless %}{% for tag in taglist %}
   - {{ tag }}

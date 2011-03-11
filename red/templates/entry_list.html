@@ -11,6 +11,7 @@
                     {{ entry.pub_date|date:"Y-m-j" }}
                     <a href="/admin/red/entry/{{ entry.id }}">{{ entry.title }}</a>
                     ( tag{{ entry.tags.all|pluralize }}: {% for tag in entry.tags.all %} {{ tag }} {% endfor %})
+                    <a href="/export/{{ entry.id }}">export</a>
                 </li>
             {% endfor %}
         </ul>
