@@ -28,7 +28,6 @@ class Entry(models.Model):
         for i in self.taglist:
             p, created = Tag.objects.get_or_create(name=i)
             self.tags.add(p)
-        super(Entry, self).save()
         self.taglist = []
 
     def __unicode__(self):
