@@ -62,6 +62,7 @@ def markdown_factory(uploadObj, post):
     output = '\n'.join(output)
 
     cd = {'title': title,
+          'filename': filename,
           'taglist': tags,
           'pub_date': date,
           'content': output,

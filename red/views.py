@@ -45,12 +45,9 @@ def upload_file(request):
 def export(request, entry_id):
     e = get_object_or_404(Entry, id=entry_id)
 
-    filename = e.title.replace(' ', '-').lower()
-    for p in '{}':
-        filename = filename.replace(p, '')
     for tag in e.tags.all():
         e.taglist.append(tag.name)
-    filename = str(e.pub_date) + '-' + filename
+    filename = str(e.pub_date) + '-' + e.filename
 
     exp = {'title': e.title,
            'taglist': e.taglist,
