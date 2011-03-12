@@ -8,7 +8,7 @@ from django.contrib import admin
 from antidote.red.models import Tag, Entry
 
 class EntryAdmin(admin.ModelAdmin):
-    list_display = ('title', 'pub_date')
+    list_display = ('title', 'pub_date', 'tags_inline')
     search_fields = ('title',)
     date_hierarchy = 'pub_date'
     filter_horizontal = ('tags',)

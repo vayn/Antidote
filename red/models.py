@@ -17,7 +17,8 @@ class EntryManager(models.Manager):
 
 class Entry(models.Model):
     title = models.CharField(max_length=100)
-    pub_date = models.DateField(blank=True, null=True)
+    filename = models.CharField(max_length=100)
+    pub_date = models.DateField(blank=True, null=True, verbose_name='Date')
     content = models.TextField()
     tags = models.ManyToManyField(Tag)
     taglist = []
@@ -29,6 +30,10 @@ class Entry(models.Model):
             p, created = Tag.objects.get_or_create(name=i)
             self.tags.add(p)
         self.taglist = []
+
+    def tags_inline(self):
+        return ', '.join([a.name for a in self.tags.all()])
+    tags_inline.short_description = 'tags'
 
     def __unicode__(self):
         return self.title
