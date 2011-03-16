@@ -28,7 +28,7 @@ tags: （用逗号分割多个tag）
 
 例文请参见 _sample.txt_
 
-h3. 安装和使用
+h2. 安装和使用
 
 Antidote 使用了 "Django":http://djangoproject.com/ （1.2.3）框架，请确保本机上已安装了最新版 Django。
 
