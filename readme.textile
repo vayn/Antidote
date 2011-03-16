@@ -30,7 +30,7 @@ tags: （分类）
 
 h3. 安装和使用
 
-Antidote 使用了 "Django":http://djangoproject.com/（1.2.3）框架，请确保本机上已安装了最新版 Django。
+Antidote 使用了 "Django":http://djangoproject.com/ （1.2.3）框架，请确保本机上已安装了最新版 Django。
 
 运行 Antidote。从命令行进入 Antidote 所在目录，输入如下命令：
 
