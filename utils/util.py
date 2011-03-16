@@ -4,6 +4,9 @@
 # @Name: util.py
 # @Date: 2011年03月10日 星期四 09时26分44秒
 
+import re
+
+from datetime import datetime
 from django.utils.datastructures import MultiValueDictKeyError
 from antidote.red.models import Entry
 
@@ -21,9 +24,10 @@ def blocks(file):
             yield ''.join(block).strip()
             block = []
 
-def save_to_db(**kwargs):
-    title = kwargs.pop('title', {})
-    Entry.objects.get_or_create(title=title, defaults=kwargs)
+def slugify(string):
+    string = re.sub('\s+', '-', string)
+    string = re.sub('[^\w.-]', '', string)
+    return string.strip().lower()
 
 def markdown_factory(uploadObj, post):
     content = uploadObj.readlines()
@@ -53,6 +57,9 @@ def markdown_factory(uploadObj, post):
         else:
             output.append(line)
 
+    if filename is None:
+        filename = slugify(title)
+
     if date is None:
         date = post['date']
         filename = date + '-' + filename
@@ -64,7 +71,7 @@ def markdown_factory(uploadObj, post):
     cd = {'title': title,
           'filename': filename,
           'taglist': tags,
-          'pub_date': date,
+          'pub_date': datetime.strptime(date, '%Y-%m-%d'),
           'content': output,
          }
     try:
@@ -73,3 +80,7 @@ def markdown_factory(uploadObj, post):
     except MultiValueDictKeyError:
         pass
     return (filename, cd)
+
+def save_to_db(**kwargs):
+    title = kwargs.pop('title', {})
+    Entry.objects.get_or_create(title=title, defaults=kwargs)

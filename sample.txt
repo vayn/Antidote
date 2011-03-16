@@ -1,5 +1,5 @@
 {Sample} Software List
-file: Software-List
+file: sample-Software-List
 tags: sample
 
 01. Guake Terminal
