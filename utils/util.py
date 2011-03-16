@@ -8,6 +8,7 @@ import re
 
 from datetime import datetime
 from django.utils.datastructures import MultiValueDictKeyError
+from django.utils.encoding import smart_unicode
 from antidote.red.models import Entry
 from antidote.utils import markdown
 
@@ -69,8 +70,7 @@ def markdown_factory(uploadObj, post):
         output.append('\nEOF')
     output = '\n'.join(output)
     md = markdown.Markdown()
-    output_html = md.convert(output)
-
+    output_html = md.convert(smart_unicode(output))
 
     cd = {'title': title,
           'filename': filename,

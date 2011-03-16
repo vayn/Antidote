@@ -24,7 +24,7 @@ file: 任意文件名 *必须（包括 file:）*
 可选设置（如果要用紧接着 标题 和 file: 之后的新一行）：
 
 bq. date: （日期）
-tags: （分类）
+tags: （用逗号分割多个tag）
 
 例文请参见 _sample.txt_
 
