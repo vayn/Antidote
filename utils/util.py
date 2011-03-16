@@ -9,6 +9,7 @@ import re
 from datetime import datetime
 from django.utils.datastructures import MultiValueDictKeyError
 from antidote.red.models import Entry
+from antidote.utils import markdown
 
 
 def lines(file):
@@ -67,12 +68,16 @@ def markdown_factory(uploadObj, post):
     if not content[-1].strip() == 'EOF':
         output.append('\nEOF')
     output = '\n'.join(output)
+    md = markdown.Markdown()
+    output_html = md.convert(output)
+
 
     cd = {'title': title,
           'filename': filename,
           'taglist': tags,
           'pub_date': datetime.strptime(date, '%Y-%m-%d'),
           'content': output,
+          'content_html': output_html,
          }
     try:
         if post['save'] == 'on':

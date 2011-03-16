@@ -1,0 +1,53 @@
+h1. Antidote/Red
+
+如果你使用 Github 来托管自己的 blog，那么你就应该知道 Jekyll。Jekyll 是一个非常简洁的 blog 软件，Github 就使用它来解析各种文本文档。不过使用 Jekyll 的时间长了，你就会发现创建符合 Jekyll 格式文档的步骤有些繁琐，而且文档的管理也不太方便。
+
+Antidote 就是为了解决这些不大但有点头疼的问题而写些的。
+
+h2. Antidote 能做什么 
+
+* 简洁的 web 界面。
+* 把一般文档转化成符合 Jekyll 要求的文档。
+* 把文章存于 sqlite3 数据库中，以便日后检索。
+* 生成的文档以日期作为文件名前缀，文档按日期排列，方便管理。
+* 自动生成网页形式的目录页，更符合浏览习惯。
+* 如果使用数据库，还可进入后台修改文档，从数据库导出文档等等。
+
+h2. Antidote 标准文档格式
+
+只有两行是必须的（注意：这两行必须在文档最开始）。
+
+bq. 标题 *必须*
+file: 任意文件名 *必须（包括 file:）*
+正文（随意）
+
+可选设置（如果要用紧接着 标题 和 file: 之后的新一行）：
+
+bq. date: （日期）
+tags: （分类）
+
+例文请参见 _sample.txt_
+
+h3. 安装和使用
+
+Antidote 使用了 "Django":http://djangoproject.com/（1.2.3）框架，请确保本机上已安装了最新版 Django。
+
+运行 Antidote。从命令行进入 Antidote 所在目录，输入如下命令：
+
+<pre>
+<code>
+$ python manage.py runserver
+</code>
+</pre>
+
+然后访问 http://127.0.0.1:8000/ 即可。
+
+*注意：Antidote 并没有被设计为可对外访问的网站，请不要在对外的服务器上部署 Antidote！*
+
+后台地址是 http://127.0.0.1:8000/admin/
+
+初始管理账户@密码：admin@123456
+
+h2. 许可（License）
+
+Antidote 采用 GPL3 协议。

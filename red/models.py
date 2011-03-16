@@ -20,6 +20,7 @@ class Entry(models.Model):
     filename = models.CharField(max_length=100)
     pub_date = models.DateField(blank=True, null=True, verbose_name='Date')
     content = models.TextField()
+    content_html = models.TextField()
     tags = models.ManyToManyField(Tag)
     taglist = []
     objects = EntryManager()

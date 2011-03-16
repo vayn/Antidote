@@ -3,7 +3,7 @@
 {% block title %}Antidote/Red{% endblock %}
 
 {% block content %}
-    <h1>Antidote</h1>
+    <h1>Upload</h1>
     {% if errors %}
         <ul style="color:#f00;list-style:none;padding:0;">
             {% for error in errors %}
@@ -12,18 +12,10 @@
         </ul>
     {% endif %}
 
-	<form action="/search/" method="GET">
-        <input id="" name="q" type="text" />
-        <input type="submit" value="Search" />
-    </form>
-    <hr />
-
     {% if form %}
     <form enctype="multipart/form-data" method="post" action="">
         {{ form.as_p }}
         <p><input type="submit" value="Submit" /></p>
     </form>
     {% endif %}
-
-    <p><a href="/archive/">Archive</a></p>
 {% endblock %}

@@ -22,7 +22,13 @@ def search(request):
     return render_to_response('index.html', {'errors': errors})
 
 def entry_detail(request, entry_id):
-    pass
+    response = list_detail.object_detail(
+        request,
+        queryset=Entry.objects.all(),
+        template_name='entry_detail.html',
+        object_id=entry_id,
+    )
+    return response
 
 def _handle_uploaded_file(filename, mkdfile):
     response = HttpResponse(mimetype='text/plain')
@@ -37,7 +43,7 @@ def upload_file(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
         if form.is_valid():
-            filename, mkdfile = markdown_factory(request.FILES['content'], request.POST)
+            filename, mkdfile = markdown_factory(request.FILES['file'], request.POST)
             return _handle_uploaded_file(filename, mkdfile)
     else:
         form = UploadFileForm()

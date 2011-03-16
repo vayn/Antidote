@@ -21,5 +21,12 @@ urlpatterns = patterns('',
     (r'^search/$', 'antidote.red.views.search'),
     (r'^archive/$', list_detail.object_list, entry_info),
     (r'^export/(?P<entry_id>\d+)/$', 'antidote.red.views.export'),
+    (r'^view/(?P<entry_id>\d+)/$', 'antidote.red.views.entry_detail'),
     (r'^$', 'antidote.red.views.upload_file'),
+)
+
+urlpatterns += patterns('',
+    (r'^static/(?P<path>.*)$', 'django.views.static.serve',
+     {'document_root': './static'}),
+
 )

@@ -22,13 +22,20 @@ MAX_UPLOAD_SIZE = 2621440
 
 
 class UploadFileForm(forms.Form):
-    title = forms.CharField(max_length=50, help_text="Not necessary", required=False)
-    tags = forms.CharField(max_length=50, help_text="Not necessary", required=False)
-    date = forms.DateField(initial=datetime.date.today, help_text="Not necessary", required=False)
-    content = forms.FileField(help_text="**required**")
-    save = forms.BooleanField(widget=forms.CheckboxInput(attrs={'checked': 'checked',}),
-                              label='Save to DB',
-                              required=False)
+    file = forms.FileField(help_text="**Required**")
+    title = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder':'Not necessary'}),
+                            max_length=50,
+                            required=False)
+    tags = forms.CharField(widget=forms.TextInput(
+                attrs={'placeholder':'Not necessary'}),
+                max_length=50,
+                required=False)
+    date = forms.DateField(initial=datetime.date.today, required=False)
+    save = forms.BooleanField(widget=forms.CheckboxInput(
+                attrs={'checked': 'checked',}),
+                label='Save to DB',
+                required=False)
 
     def clean_content(self):
         content = self.cleaned_data['content']

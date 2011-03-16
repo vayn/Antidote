@@ -1,0 +1,15 @@
+{%extends "base.html"%}
+
+{%block title%}{{object.title}}{%endblock%}
+
+{%block content%}
+<article>
+    <h1>
+        {{object.title}}
+        <sup><a href="/admin/red/entry/{{ object.id }}/">Edit</a></sup>
+    </h1>
+    <section>
+        {{object.content_html|safe}}
+    </section>
+</article>
+{%endblock%}

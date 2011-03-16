@@ -3,12 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
 </head>
 <body>
-    <article>{% block content %}{% endblock %}</article>
-    <hr />
-    {% block footer %}
-    <footer>Antidote/<span style="color:#f00">Red</span> 0.0.3</footer>
-    {% endblock %}
+<div id="wrapper">
+    <header>
+		<a href="/" rel="index">Antidote</a>
+	</header>
+
+    <section>
+        {%block content%}{%endblock%}
+    </section>
+
+    <nav>
+        <form action="/search/" method="GET">
+            <input name="q" type="search" size=20 />
+        </form>
+        <h2>About</h2>
+        <p>Antidote is a handy tool for managing your Jekyll</p>
+        <p><a href="/archive/">Archive</a></p>
+    </nav>
+
+    <footer>
+        Antidote <sub>Red 0.0.4</sub>
+    </footer>
+</div>
+<script src="/static/js/jquery.min.js" type="text/javascript"></script>
+<script src="/static/js/placeholder.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(":input[placeholder]").placeholder(); 
+</script>
 </body>
 </html>

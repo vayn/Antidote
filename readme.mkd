@@ -1,8 +1,0 @@
-Antidote/Red
-============
-
-Antidote/Red 是一个专门生成 jekyll 文档的工具，采用 Django 作为后台框架。
-
-Antidote 自带 sqilite3 数据库，可以把文章和相关 tag 存储于数据库中，与 Django 自带的 admin 功能合起来使用，可以很方便的对日志进行检索和管理。
-
-后台管理账户@密码：admin@123456
